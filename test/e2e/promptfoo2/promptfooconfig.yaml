@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+
+description: "BrewBot Agent End-to-End Tests"
+
+prompts:
+  - file://prompts/question.txt
+
+providers:
+  - id: brewbot
+    config:
+      exec: node invoke-agent.js
+
+tests: file://datasets/tests.yaml
+
+outputPath: "./results"
+sharing: false
+
+evaluateOptions:
+  maxConcurrency: 2
+  delay: 1000
